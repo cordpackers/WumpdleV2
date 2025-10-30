@@ -14,7 +14,7 @@ const host = config.host;
 export const handleManifest = withSection("v2 manifest", async (span, c) => {
 	const branch = c.req.param("branch");
 	if (!getBranch(branch)) {
-		return c.notFound("Invalid sheltupdate branch");
+		return c.notFound("Invalid WumpdleV2 branch");
 	}
 
 	populateReqAttrs(span, c);

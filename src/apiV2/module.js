@@ -5,7 +5,7 @@ import { populateReqAttrs, withSection } from "../common/tracer.js";
 
 export const handleModule = withSection("v2 download module", (span, c) => {
 	if (!getBranch(c.req.param("branch"))) {
-		return c.notFound("Invalid sheltupdate branch");
+		return c.notFound("Invalid WumpdleV2 branch");
 	}
 
 	populateReqAttrs(span, c);

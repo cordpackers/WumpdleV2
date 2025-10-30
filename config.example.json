@@ -1,14 +1,8 @@
 {
-	"port": 8080,
-	"host": "https://inject.shelter.uwu.network",
+	"port": 1337,
+	"host": "http://localhost:1337",
 	"stats": true,
 	"setupIntervalHours": 3,
-	"tracing": {
-		"service": "sheltupdate",
-		"log": true,
-		"otlpEndpoint": "http://localhost:4318/v1/traces",
-		"otlpType": "protobuf"
-	},
 	"proxy": {
 		"cache": {
 			"lastUsedRemoveHours": 1,
@@ -23,7 +17,7 @@
 	"webhook": {
 		"enable": false,
 		"url": "https://discord.com/api/webhooks/X",
-		"username": "GooseUpdate",
+		"username": "WumpdleV2",
 		"avatarUrl": "https://cdn.discordapp.com/avatars/760559484342501406/5125aff2f446ad7c45cf2dfd6abf92ed.png"
 	}
 }

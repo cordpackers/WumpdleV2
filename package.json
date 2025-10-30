@@ -1,12 +1,12 @@
 {
-	"name": "sheltupdate",
+	"name": "WumpdleV2",
 	"private": true,
-	"description": "A modern fork of GooseUpdate to inject shelter with.",
+	"description": "A modern fork of Sheltupdate for repackaged Discord clients.",
 	"main": "src/index.js",
 	"scripts": {
 		"format": "dprint fmt"
 	},
-	"author": "GooseMod, Yellowsink",
+	"author": "GooseMod, Yellowsink, CordPackers",
 	"license": "MIT",
 	"dependencies": {
 		"@electron/asar": "^3.2.17",

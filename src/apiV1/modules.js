@@ -12,7 +12,7 @@ export const handleModules = withSection("v1 module update check", async (span, 
 
 	const branchObj = getBranch(branch);
 	if (!branchObj) {
-		return c.notFound("Invalid sheltupdate branch");
+		return c.notFound("Invalid WumpdleV2 branch");
 	}
 
 	reportEndpoint("v1_modules");

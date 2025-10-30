@@ -20,7 +20,7 @@ const sdk = new NodeSDK({
 
 sdk.start();
 
-const tracer = trace.getTracer("sheltupdate-tracer");
+const tracer = trace.getTracer("WumpdleV2-tracer");
 
 // i will type this shit properly if we switch to TS but i just couldnt bear not having the span arg inferred omg -- ys
 /**

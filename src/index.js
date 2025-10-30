@@ -20,18 +20,18 @@ const app = new Hono()
 	.use(
 		createMiddleware(async (c, next) => {
 			await next();
-			c.header("Server", `sheltupdate/r${version}`);
+			c.header("Server", `WumpdleV2/r${version}`);
 		}),
 	)
 	.route("/", apiV1)
 	.route("/", apiV2)
 	.route("/", dashboard)
-	.get("/sheltupdate_branches", async (c) => {
+	.get("/WumpdleV2_branches", async (c) => {
 		// cors
 		c.header("Access-Control-Allow-Origin", "*");
 		return c.json(getSingleBranchMetas());
 	})
-	.get("/sheltupdate_changelog", async (c) => {
+	.get("/WumpdleV2_changelog", async (c) => {
 		// cors
 		c.header("Access-Control-Allow-Origin", "*");
 		return c.text(changelog);

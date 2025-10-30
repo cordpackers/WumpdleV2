@@ -91,11 +91,11 @@ const init = withSection("branch finder", async (span) => {
 
 				if (filename === "main.js") {
 					const mainSrc = readFileSync(f, "utf8").split("\n").join("\n\t\t");
-					main = `// Branch: ${name}\n\ttry {\n\t\t${mainSrc}\n\t} catch(e) { console.error("[sheltupdate] Main error (${name}):", e) }\n`;
+					main = `// Branch: ${name}\n\ttry {\n\t\t${mainSrc}\n\t} catch(e) { console.error("[WumpdleV2] Main error (${name}):", e) }\n`;
 					files.splice(i--, 1);
 				} else if (filename === "preload.js") {
 					const preloadSrc = readFileSync(f, "utf8").split("\n").join("\n\t");
-					preload = `// Branch: ${name}\ntry {\n\t${preloadSrc}\n} catch(e) { console.error("[sheltupdate] Preload error (${name}):", e) }\n`;
+					preload = `// Branch: ${name}\ntry {\n\t${preloadSrc}\n} catch(e) { console.error("[WumpdleV2] Preload error (${name}):", e) }\n`;
 					files.splice(i--, 1);
 				} else if (filename === "meta.js") {
 					const metaMod = await import(pathToFileURL(f));
@@ -126,7 +126,7 @@ const init = withSection("branch finder", async (span) => {
 			const fileHashes = allFiles.map((f) => sha256(readFileSync(f)));
 
 			// the list of branches is sent along with the module and accounting for that is difficult so
-			// just factor the sheltupdate release number into the version and leave it at that.
+			// just factor the WumpdleV2 release number into the version and leave it at that.
 			const version = parseInt(sha256(fileHashes.join(" ") + main + preload + dcVersion + shupVersion).substring(0, 2), 16);
 			const internalFiles = ["main.js", "preload.js", "meta.js"];
 

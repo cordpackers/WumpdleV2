@@ -17,7 +17,7 @@ export const handleModuleDownload = withSection("v1 download module", async (spa
 
 	const branchFull = getBranch(branch);
 	if (!branchFull) {
-		return c.notFound("Invalid sheltupdate branch");
+		return c.notFound("Invalid WumpdleV2 branch");
 	}
 
 	reportEndpoint("v1_module_download");

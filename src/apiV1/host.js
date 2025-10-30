@@ -6,7 +6,7 @@ import { populateReqAttrs, withSection } from "../common/tracer.js";
 export const handleNonSquirrel = withSection("v1 host linux", async (span, c) => {
 	// Non-Squirrel (Linux)
 	if (!getBranch(c.req.param("branch"))) {
-		return c.notFound("Invalid sheltupdate branch");
+		return c.notFound("Invalid WumpdleV2 branch");
 	}
 
 	reportEndpoint("v1_host_notsquirrel");
@@ -19,7 +19,7 @@ export const handleNonSquirrel = withSection("v1 host linux", async (span, c) =>
 export const handleSquirrel = withSection("v1 host squirrel", async (span, c) => {
 	// Squirrel (non-Linux)
 	if (!getBranch(c.req.param("branch"))) {
-		return c.notFound("Invalid sheltupdate branch");
+		return c.notFound("Invalid WumpdleV2 branch");
 	}
 
 	reportEndpoint("v1_host_squirrel");

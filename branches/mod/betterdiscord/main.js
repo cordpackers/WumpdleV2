@@ -1,1 +1,0 @@
-require("./betterdiscord.asar");

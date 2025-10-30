@@ -33,9 +33,9 @@ if (proxyExports === undefined) {
 				return function () {
 					const origThis = this;
 					const origArgs = arguments;
-					console.log("[sheltupdate] Delaying function call:", prop);
+					console.log("[WumpdleV2] Delaying function call:", prop);
 					branchesLoaded.then((originalExports) => {
-						console.log("[sheltupdate] Calling original function:", prop);
+						console.log("[WumpdleV2] Calling original function:", prop);
 						originalExports[prop].apply(origThis, origArgs);
 					});
 				};
@@ -44,7 +44,7 @@ if (proxyExports === undefined) {
 	);
 
 	setup()
-		.catch((e) => console.error("[sheltupdate] Error during setup", e))
+		.catch((e) => console.error("[WumpdleV2] Error during setup", e))
 		.finally(() => resolveBranchesLoaded(require("./core.asar")));
 }
 
@@ -73,7 +73,7 @@ async function setup() {
 	// Block Sentry requests
 	// We create stubs for electron.net.request to make Sentry think that the requests succeeded.
 	// Because making them error leads to Sentry adding them to a queue on disk. Meaning that if
-	// the user were to uninstall sheltupdate, all the requests would still be sent subsequently.
+	// the user were to uninstall WumpdleV2, all the requests would still be sent subsequently.
 	// See https://github.com/getsentry/sentry-electron/blob/3e4e10525b5fb24ffa98b211b91393f81e3555be/src/main/transports/electron-net.ts#L64
 	// and https://github.com/getsentry/sentry-electron/blob/3e4e10525b5fb24ffa98b211b91393f81e3555be/src/main/transports/offline-store.ts#L52
 
@@ -93,12 +93,12 @@ async function setup() {
 		if (!options?.hostname?.endsWith("sentry.io")) {
 			return origRequest.apply(this, arguments);
 		}
-		console.log("[sheltupdate] Blocking Sentry request!");
+		console.log("[WumpdleV2] Blocking Sentry request!");
 		return new RequestStub();
 	};
 
-	electron.ipcMain.on("SHELTUPDATE_FRAMEWORK_ORIGINAL_PRELOAD", (event) => {
-		event.returnValue = event.sender.sheltupdateOriginalPreload;
+	electron.ipcMain.on("WumpdleV2_FRAMEWORK_ORIGINAL_PRELOAD", (event) => {
+		event.returnValue = event.sender.WumpdleV2OriginalPreload;
 	});
 
 	class BrowserWindow extends electron.BrowserWindow {
@@ -113,7 +113,7 @@ async function setup() {
 			}
 
 			super(options);
-			this.webContents.sheltupdateOriginalPreload = originalPreload;
+			this.webContents.WumpdleV2OriginalPreload = originalPreload;
 		}
 	}
 

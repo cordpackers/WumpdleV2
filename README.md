@@ -7,6 +7,10 @@ Changes from Sheltupdate:
  - Different branches are now only for release channel (Stable, PTB, Canary, Development, Any name here)
  - Since every host update is expected to packaged with a client mod, Wumpdle will only patch the modules used by the client.
 
+## Licensing
+
+This is a dual-licensed project. Sheltupdate/GooseUpdate is MIT licensed, CordPackers' changes are AGPL licensed. If you want to fork Sheltupdate, fork Sheltupdate. If you want to incorporate our changes, please add AGPL license.
+
 ## Deploying
 1. Install WumpdleV2's dependencies with `npm install`
 2. Copy `config.example.json` to `config.json` and modify it to your liking, then run `node src/index.js`.

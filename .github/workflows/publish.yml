@@ -67,8 +67,8 @@ jobs:
               username: ${{ secrets.DEPLOY_USER }}
               key: ${{ secrets.DEPLOY_PRIVKEY }}
               # this relies on a specific custom update script that is installed on the
-              # server that currently hosts sheltupdate. Adjust as needed.
-              script: ~/update.sh sheltupdate
+              # server that currently hosts WumpdleV2. Adjust as needed.
+              script: ~/update.sh WumpdleV2
 
          - name: Update staging container on server
            uses: appleboy/ssh-action@master
@@ -76,4 +76,4 @@ jobs:
               host: ${{ secrets.DEPLOY_HOST }}
               username: ${{ secrets.DEPLOY_USER }}
               key: ${{ secrets.DEPLOY_PRIVKEY }}
-              script: ~/update.sh sheltupdate-staging
+              script: ~/update.sh WumpdleV2-staging
